@@ -11,7 +11,7 @@ document.getElementById("jobForm").addEventListener("submit", function (e) {
  
   var valid = true;
  
-  if (!/^[A-Za-z]{3,}$/.test(name.value.trim())) {
+  if (!/^[A-Za-z\s]{3,}$/.test(name.value.trim())) {
     alert("Name must be at least 3 letters.");
     name.classList.add("invalid");
     valid = false;
@@ -94,7 +94,7 @@ function validateField(field) {
   const value = field.value.trim();
  
   if (field.id === "name") {
-    setValidation(field, /^[A-Za-z]{3,}$/.test(value));
+    setValidation(field, /^[A-Za-z\s]{3,}$/.test(value));
   } else if (field.id === "email") {
     setValidation(field, /^\S+@\S+\.\S+$/.test(value));
   } else if (field.id === "phone") {
